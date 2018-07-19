@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import SwitchEshop from 'nintendo-switch-eshop';
 import logo from './logo.svg';
 import './App.css';
-import api from './Api';
+import Games from './Games';
 
 class App extends Component {
   render() {
@@ -15,31 +14,10 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <Games />
       </div>
     );
   }
-  componentDidMount() {
-    api.fetchPopularRepos('JavaScript').then(repos => {
-      console.log(repos);
-    });
-    loadStore();
-  }
 }
-
-const loadStore = () => {
-  const requestOptions = {
-    locale: '',
-    limit: 100
-  };
-
-  SwitchEshop.getGamesAmerica([requestOptions])
-    .then(value => {
-      console.log(value);
-      return value; //set state here
-    })
-    .catch(error => {
-      console.log('Promise Error: ' + error);
-    });
-};
 
 export default App;
