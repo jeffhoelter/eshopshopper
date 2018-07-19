@@ -10,12 +10,12 @@ router.get('/', function(req, res, next) {
   const requestOptions = {
     locale: '',
     limit: 100,
-    shop: 'ncom'
+    shop: 'all'
   };
 
   SwitchEshop.getGamesAmerica([requestOptions])
     .then(value => {
-      console.log(value);
+      //console.log(value);
       //return value; //set state here
       res.send(value);
     })
