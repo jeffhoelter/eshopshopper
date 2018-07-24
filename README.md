@@ -6,6 +6,7 @@ This project is a work in progress, designed ultimately to be a Nintendo Switch 
 - [Planned Features](#planned-features)
   - [Features](#features)
   - [Deployment](#deployment)
+- [How to Install and Run the App](#How-to-Install-and-Run-the-App)
 
 
 ## Current Features
@@ -22,8 +23,27 @@ Below is a running list of ideas to implement to make this app more fully-functi
 - [ ] Cache store results in case the store is down.
 - [ ] Store price history tracking.
   - [ ] Add database (AWS? Dynamo?).
-- Enable price watches (simple email registration).
+- [ ] Enable price watches (simple email registration).
 
 ### Deployment
 - [ ] Deploy on AWS
 
+
+## How to Install and Run the App
+Get the code and run the install:
+```git clone git@github.com:jeffhoelter/eshopshopper.git
+cd eshopshopper
+nvm use
+npm install
+```
+
+Run the app:
+
+Front end:
+```
+npm start
+```
+Back end:
+```
+PORT=3001 node bin/www
+```
