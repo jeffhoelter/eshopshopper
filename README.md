@@ -2,11 +2,11 @@ This project is a work in progress, designed ultimately to be a Nintendo Switch 
 
 ## Table of Contents
 
-- [Current Features](#updating-to-new-releases)
+- [Current Features](#current-features)
 - [Planned Features](#planned-features)
   - [Features](#features)
   - [Deployment](#deployment)
-- [How to Install and Run the App](#How-to-Install-and-Run-the-App)
+- [How to Install and Run the App](#how-to-install-and-run-the-app)
 
 
 ## Current Features
