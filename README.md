@@ -18,7 +18,7 @@ Below is a running list of ideas to implement to make this app more fully-functi
 ### Features
 - [x] ~~Fix bug in nintendo-switch-eshop.~~ Fixed in v1.1.3.
 - [x] Pull latest prices on an hourly basis.
-- [ ] Add some basic unit tests.
+- [x] Add some basic unit tests.
 - [ ] UI Refinement
   - [ ] Enable pagination and sorting.
 - [ ] Cache store results in case the store is down.
