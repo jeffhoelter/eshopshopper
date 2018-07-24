@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Fetch makes an API call and displays the greeting when load-greeting is clicked 1`] = `
+<div
+  align="center"
+  class="Games"
+>
+  <h3>
+    Last update date: 
+  </h3>
+  <table
+    class="pure-table pure-table-bordered pure-table-striped"
+    data-testid="games-table"
+  >
+    <thead>
+      <tr>
+        <th>
+          Title
+        </th>
+        <th>
+          Release Date
+        </th>
+        <th>
+          Box Art
+        </th>
+        <th>
+          Price
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          #Breakforcist Battle
+        </td>
+        <td>
+          Apr 12, 2018
+        </td>
+        <td>
+          <img
+            alt="#Breakforcist Battle"
+            height="120"
+            width="120"
+            src="https://media.nintendo.com/nintendo/bin/S9233-zQTduo1uWckvUcVqikBSFMUzxZ/7hWl7WrFj-twgIgF1fB6a8Y74qMEGm59.png"
+          />
+        </td>
+        <td>
+          $
+          9.99
+        </td>
+      </tr>
+      <tr>
+        <td>
+          1-2-Switch
+        </td>
+        <td>
+          Mar 3, 2017
+        </td>
+        <td>
+          <img
+            alt="1-2-Switch"
+            height="120"
+            width="120"
+            src="https://media.nintendo.com/nintendo/bin/oiM2QlLg9frNJhSWvFGmi5NAvEAGlYVx/_3d_ldcR3G0YQl590uHXZ89Jmouu5aS9.png"
+          />
+        </td>
+        <td>
+          $
+          49.99
+        </td>
+      </tr>
+      <tr>
+        <td>
+          10 Second Run RETURNS
+        </td>
+        <td>
+          Jan 25, 2018
+        </td>
+        <td>
+          <img
+            alt="10 Second Run RETURNS"
+            height="120"
+            width="120"
+            src="https://media.nintendo.com/nintendo/bin/306P-NbgQp1QkTDZphv8wN_LTYItaai4/Sa59XowxYAGVmItNAStVkdlJW_1H4UHY.png"
+          />
+        </td>
+        <td>
+          $
+          6.54
+        </td>
+      </tr>
+      <tr>
+        <td>
+          12 orbits
+        </td>
+        <td>
+          Apr 27, 2018
+        </td>
+        <td>
+          <img
+            alt="12 orbits"
+            height="120"
+            width="120"
+            src="https://media.nintendo.com/nintendo/bin/Wyxk2GXMk8JgfjClPzBxubYkC-XTQhus/t3ZW3jMKK9B8P37Avjp0PuiTbr-vst-t.png"
+          />
+        </td>
+        <td>
+          $
+          1.99
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

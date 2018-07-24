@@ -12,7 +12,7 @@ class Games extends Component {
   componentDidMount() {
     console.log('componentDidMount');
     fetch('/games')
-      .then(res => res.json())
+      //.then(res => res.json())
       .then(responseJSON => {
         this.setState({
           games: responseJSON.games,
@@ -20,19 +20,20 @@ class Games extends Component {
           loading: false
         });
       })
-      .catch(function() {
+      .catch(function(err) {
+        //console.log(err);
         console.log('error');
       });
   }
 
   render() {
     if (this.state.loading) {
-      return <img src={logo} className="App-logo" alt="logo" />;
+      return <img src={logo} className="App-logo" alt="logo" data-testid="spinner" />;
     } else {
       return (
         <div align="center" className="Games">
           <h3>Last update date: {this.state.updateTime}</h3>
-          <table className="pure-table pure-table-bordered pure-table-striped">
+          <table className="pure-table pure-table-bordered pure-table-striped" data-testid="games-table">
             <thead>
               <tr>
                 <th>Title</th>
