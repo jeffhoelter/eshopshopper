@@ -3,15 +3,25 @@ import './App.css';
 import logo from './logo.svg';
 
 class Games extends Component {
-  state = { games: [], loading: true };
+  state = {
+    games: {},
+    updateTime: new Date(),
+    loading: true
+  };
 
   componentDidMount() {
+    console.log('componentDidMount');
     fetch('/games')
       .then(res => res.json())
-      .then(games => {
-        this.setState({ games });
-        this.setState({ loading: false });
-        console.log(`this.state.games: ${this.state.games}`);
+      .then(responseJSON => {
+        this.setState({
+          games: responseJSON.games,
+          updateTime: responseJSON.updateTime,
+          loading: false
+        });
+      })
+      .catch(function() {
+        console.log('error');
       });
   }
 
@@ -21,7 +31,8 @@ class Games extends Component {
     } else {
       return (
         <div align="center" className="Games">
-          <table class="pure-table pure-table-bordered pure-table-striped">
+          <h3>Last update date: {this.state.updateTime}</h3>
+          <table className="pure-table pure-table-bordered pure-table-striped">
             <thead>
               <tr>
                 <th>Title</th>
@@ -38,7 +49,7 @@ class Games extends Component {
                     <td>{game.title}</td>
                     <td>{game.release_date}</td>
                     <td>
-                      <img height="120" width="120" src={game.front_box_art} />
+                      <img alt={game.title} height="120" width="120" src={game.front_box_art} />
                     </td>
                     <td>${game.eshop_price}</td>
                   </tr>

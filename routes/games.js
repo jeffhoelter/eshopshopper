@@ -2,26 +2,54 @@ var express = require('express');
 var SwitchEshop = require('nintendo-switch-eshop');
 
 var router = express.Router();
+var currentGameList = { games: {}, updateTime: '' };
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  // Comment out this line:
-  //res.send('respond with a resource');
+  console.log('GET /games');
+  const returnValue = updateGames()
+    .then(() => {
+      res.send(currentGameList);
+    })
+    .catch(() => {
+      res.send(currentGameList);
+    });
+});
+
+const updateGames = async () => {
   const requestOptions = {
     locale: '',
-    limit: 100,
     shop: 'all'
   };
 
-  SwitchEshop.getGamesAmerica([requestOptions])
-    .then(value => {
-      //console.log(value);
-      //return value; //set state here
-      res.send(value);
-    })
-    .catch(error => {
-      console.log('Promise Error: ' + error);
-    });
-});
+  try {
+    const value = await SwitchEshop.getGamesAmerica([requestOptions]);
+    currentGameList = {
+      games: value,
+      updateTime: new Date()
+        .toJSON()
+        .slice(0, 19)
+        .replace(/[-T]/g, ':')
+    };
+    console.log(`After updateGames, games length: ${Object.keys(currentGameList.games).length}`);
+  } catch (error) {
+    console.log('Request Error: ' + error);
+  }
+};
+
+var minutes = 60,
+  the_interval = minutes * 60 * 1000;
+
+setInterval(() => {
+  console.log(
+    `grabbing new data ${new Date()
+      .toJSON()
+      .slice(0, 19)
+      .replace(/[-T]/g, ':')}`
+  );
+  console.log(`Before updateGames, games length: ${Object.keys(currentGameList.games).length}`);
+  updateGames();
+  // do your stuff here
+}, the_interval);
 
 module.exports = router;
