@@ -12,8 +12,9 @@ class Games extends Component {
   componentDidMount() {
     console.log('componentDidMount');
     fetch('/games')
-      //.then(res => res.json())
+      .then(res => res.json())
       .then(responseJSON => {
+        console.log(responseJSON);
         this.setState({
           games: responseJSON.games,
           updateTime: responseJSON.updateTime,

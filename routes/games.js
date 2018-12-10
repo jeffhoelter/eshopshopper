@@ -21,19 +21,40 @@ const updateGames = async () => {
     locale: '',
     shop: 'all'
   };
+  const updateData = true;
 
-  try {
-    const value = await SwitchEshop.getGamesAmerica([requestOptions]);
-    currentGameList = {
-      games: value,
-      updateTime: new Date()
-        .toJSON()
-        .slice(0, 19)
-        .replace(/[-T]/g, ':')
-    };
-    console.log(`After updateGames, games length: ${Object.keys(currentGameList.games).length}`);
-  } catch (error) {
-    console.log('Request Error: ' + error);
+  if (currentGameList.updateTime !== '') {
+    const lastUpdateTime = new Date(currentGameList.updateTime);
+    const hourago = new Date(new Date() - 1000 * 60 * 60);
+    //const hourago = new Date(new Date());
+
+    console.log(`updateGames updateTime: ${lastUpdateTime}`);
+    console.log(`updateGames hourago: ${hourago}`);
+
+    if (lastUpdateTime > hourago) {
+      console.log("don't update");
+      updateData = false;
+    } else {
+      console.log('do update');
+      updateData = true;
+    }
+  }
+
+  if (updateData) {
+    try {
+      const value = await SwitchEshop.getGamesAmerica([requestOptions]);
+      //console.log(value);
+      currentGameList = {
+        games: value,
+        updateTime: new Date()
+        // .toJSON()
+        // .slice(0, 19)
+        // .replace(/[-T]/g, ':')
+      };
+      console.log(`After updateGames, games length: ${Object.keys(currentGameList.games).length}`);
+    } catch (error) {
+      console.log('Request Error: ' + error);
+    }
   }
 };
 
